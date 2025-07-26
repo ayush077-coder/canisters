@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "icp_canister_backend": {
+      "candid": "src/icp_canister_backend/icp_canister_backend.did",
+      "package": "icp_canister_backend",
+      "type": "rust"
+    },
+    "icp_canister_frontend": {
+      "dependencies": [
+        "icp_canister_backend"
+      ],
+      "source": [
+        "src/icp_canister_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "icp_canister_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

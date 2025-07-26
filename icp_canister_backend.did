@@ -1,0 +1,17 @@
+type DepositError = variant {
+  NoDeposit;
+  InsufficientBalance;
+  InvalidTimelock;
+  TransferFailed;
+  LedgerCallFailed;
+  InternalError;
+  LedgerNotSet;
+  DepositAlreadyExists;
+};
+
+type Result = variant { Ok; Err : DepositError };
+
+service : (opt principal) -> {
+  deposit : (principal, nat64) -> (Result);
+  get_deposit_subaccount : (principal, nat64) -> (blob) query;
+}
